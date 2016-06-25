@@ -1,11 +1,15 @@
 body {background: #ebebe4}
-main {width: 500px;height: 500px;margin: auto}
 
 /*setting up the isometric perspectiv*/
 .isometry {
-    height: 400px;
-    width: 400px;
-    transform: rotateX(60deg) rotateY(0deg) rotateZ(50deg) translateX(-100%) translateY(-20%);
+    height: 500px;
+    width: 500px;
+    transform: 
+        rotateX(60deg)
+        rotateY(0deg)
+        rotateZ(50deg)
+        translateX(-100%)
+        translateY(-20%);
     position: absolute;
     top:50%;
     left:50%;
@@ -23,7 +27,9 @@ main {width: 500px;height: 500px;margin: auto}
 }
 
 /*making sure the grid wraps*/
-.clear{clear:left}
+
+.popper_prime:nth-child(4),
+.popper_prime:nth-child(7){clear:left}
 
 /*styling and positioning the individual tiles*/
 .popper {
