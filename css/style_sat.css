@@ -1,4 +1,4 @@
-body {background: #ebebe4}
+body {background: #ffffff}
 
 /*setting up the isometric perspectiv*/
 .isometry {
@@ -40,6 +40,7 @@ body {background: #ebebe4}
     top:0;
     transition: transform .3s cubic-bezier(.54, 0, .39, 1.46);
     border:solid 1px #ebebe4;
+    transform-style: preserve-3d;
 }
 
 /*styling the upper tile*/
@@ -62,27 +63,32 @@ body {background: #ebebe4}
 
 
 .popper_prime:hover .pop_main:after{
-    content:url(../svg/pointer_hover.svg);
+    content:url(../svg/birdskull.svg);
     display:block;
-    opacity: 0.8;
+    opacity: 1;
     transform:
-        rotateX(0deg)
-        rotateY(0deg)
-        rotateZ(-50deg)
-        translateY(-50%)
-        translateX(25%)
+        rotateX(-0deg)
+        rotateY(50deg)
+        rotateZ(-30deg)
+        translateY(-0%)
+        translateX(0%);
 }
 
 .selected:after {
-    content:url(../svg/pointer_slct.svg);
+    content:url(../svg/birdskull.svg);
     display:block;
     transform:
-        rotateX(0deg)
-        rotateY(0deg)
-        rotateZ(-50deg)
-        translateY(-50%)
-        translateX(25%)
+        rotateX(-0deg)
+        rotateY(50deg)
+        rotateZ(-30deg)
+        translateY(-0%)
+        translateX(0%);
 }
 
 
 /*img {object-fit: cover;height: 100%;width: 100%}*/
+
+/*Chars*/
+
+.chars{height:250px;width:150px}
+.hide{opacity:0}
