@@ -1,29 +1,73 @@
 $(function () {
-            $(".pop_main").click(function () {
-                if ($(this).hasClass('selected')) {
-                    $(this).removeClass('selected');
-                } else {
-                    $(this).addClass('selected');
-                }
-            });
+    //adding selected class on click
+    $(".popper_prime").click(function () {
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+        } else {
+            $(this).addClass('selected');
+        }
+    });
 
-            var bird = false;
-            var sinkeil = false;
+    //initiating the chars
+    var bird = false;
+    var sinkeil = false;
+    var Slct = "";
 
-            $('#birdskull').click(function () {
-                bird = true;
-                console.log(bird);
-            });
-            console.log(bird);
+    //activating the bird
+    $('#birdskull').click(function () {
+        sinkeil = false;
+        bird = true;
+        console.log(bird);
+    });
 
-            $('#sinkeil').click(function () {
-                sinkeil = true;
-                console.log(sinkeil);
-            });
-            console.log(sinkeil);
+    //activating the keil
+    $('#sinkeil').click(function () {
+        bird = false;
+        sinkeil = true;
+        console.log(sinkeil);
+    });
 
+//  defining wich character is selected
+    function charslct() {
+        if (bird == true) {
+            Slct = "url(svg/birdskull.svg)"
+        } else {
+            if (sinkeil == true) {
+                Slct = "url(svg/sinkeil.svg)"
+            } else {
+                Slct = "url(svg/pointer_hover.svg)"
+            }
+        }
+    };
 
-            //
-            //$('.popper_prime').hover(function(){
-            //    $(this '> .pop_main').css('content','url(svg/birdskull.svg)');
-          });
+    //show the selected char on hover
+    $('.popper_prime').mouseenter(function () {
+        charslct();
+        $('.support', this).attr({
+            style: "content:" + Slct + ";transform:rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-60%) translateX(2%) translateZ(0px);"
+        })
+    });
+    //manage the tile's state on mouse out
+    $('.popper_prime').mouseleave(function () {
+        
+        if ($(this).hasClass('selected')) {
+            $('.support', this).attr({
+                style: "content:" + Slct + ";"
+            })
+        } else {
+            $('.support', this).attr({
+                style: "content:'';"
+            })
+        }
+
+    });
+
+    //Set the character selected on the clicked tile
+    $('.popper_prime').click(function () {
+        charslct();
+        $('.support', this).attr({
+            style: "content:" + Slct + ";transform:rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-60%) translateX(2%) translateZ(0px);"
+        })
+    });
+    charslct();
+});

@@ -39,7 +39,6 @@ body {background: #ffffff}
     left: 0;
     top:0;
     transition: transform .3s cubic-bezier(.54, 0, .39, 1.46);
-    border:solid 1px #ebebe4;
     transform-style: preserve-3d;
 }
 
@@ -47,6 +46,18 @@ body {background: #ffffff}
 .pop_main_light {background: #9debeb;}
 .pop_main_dark  {background: #58b4d6;}
 .pop_main       {z-index: 1}
+.support {
+    z-index: 2;
+    transform: 
+        rotateX(-50deg)
+        rotateY(40deg) 
+        rotateZ(-30deg) 
+        translateY(-30%) 
+        translateX(0%) 
+        translateZ(0px);
+    pointer-events: none;
+    background: rgba(255, 107, 107, 0.56);
+}
 
 /*styling the lower tiles*/
 .pop1 {background: rgba(255, 85, 85, 0.49)}
@@ -54,6 +65,7 @@ body {background: #ffffff}
 .pop3 {background: rgba(255, 0, 0, 0.46);}
 
 /*the hover effect*/
+.popper_prime:hover .support  {transform: translateZ(45px);z-index:4}
 .popper_prime:hover .pop_main {transform: translateZ(45px);z-index:3}
 .popper_prime:hover .pop1     {transform: translateZ(32px) rotateY(-4deg);z-index:2}
 .popper_prime:hover .pop2     {transform: translateZ(25px)rotateY(2deg);z-index:2}
@@ -62,28 +74,19 @@ body {background: #ffffff}
 /*the pointer magic*/
 
 
+/*
 .popper_prime:hover .pop_main:after{
-    content:url(../svg/birdskull.svg);
     display:block;
     opacity: 1;
     transform:
-        rotateX(-0deg)
-        rotateY(50deg)
+        rotateX(-50deg)
+        rotateY(40deg)
         rotateZ(-30deg)
-        translateY(-0%)
-        translateX(0%);
+        translateY(-30%)
+        translateX(0%)
+        translateZ(45px)
 }
-
-.selected:after {
-    content:url(../svg/birdskull.svg);
-    display:block;
-    transform:
-        rotateX(-0deg)
-        rotateY(50deg)
-        rotateZ(-30deg)
-        translateY(-0%)
-        translateX(0%);
-}
+*/
 
 
 /*img {object-fit: cover;height: 100%;width: 100%}*/
