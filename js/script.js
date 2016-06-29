@@ -5,9 +5,9 @@ $(function () {
     var bird = false;
     var sinkeil = false;
     var Switched = 0;
-    var Slct = "";
-    var charClass = ['pointer', 'bird', 'sinkeil']
+    var charClass = ["pointer", "bird", "sinkeil"];
     var Url = ["url(svg/pointer_hover.svg)", "url(svg/birdskull.svg)", "url(svg/sinkeil.svg)"];
+    var Slct = charClass[Switched];
 
     var Sync = true;
 
@@ -23,10 +23,12 @@ $(function () {
             }
         }
     }
-    
+
     //checking if the selected element is the same as the hovered tile's content
+
     function synCheck(elem) {
         Switch();
+        console.log("class is "+charClass[Switched])
         console.log("sinkeil " + sinkeil);
         console.log("bird " + bird);
         if ($(elem).hasClass('selected')) {
@@ -40,92 +42,25 @@ $(function () {
         }
     }
 
-
-    
-
-
     //adding class representing selected char on click
-    //        function CharOnClick(elem) {
-    //            console.log(Switched);
-    //            if ($(elem).hasClass('selected')) {
-    //                if (Switched == 1) {
-    //                    $(elem).addClass('bird');
-    //                    $(elem).removeClass('sinkeil');
-    //                    $(elem).removeClass('pointer');
-    //    
-    //                } else {
-    //                    if (Switched == 2) {
-    //                        $(elem).addClass('sinkeil');
-    //                        $(elem).removeClass('bird');
-    //                        $(elem).removeClass('pointer');
-    //    
-    //                    } else {
-    //                        $(elem).addClass('pointer');
-    //                    }
-    //                }
-    //            } else {
-    //                    if (Switched == 1) {
-    //                        $(elem).removeClass('bird');
-    //                    } else {
-    //                        if (Switched == 2) {
-    //                            $(elem).removeClass('sinkeil');
-    //                        } else {
-    //                            $(elem).removeClass('pointer');
-    //                        }
-    //                    }
-    //                }
-    //            }
 
-//    function CharOnClick(elem) {
-//        if ($(elem).hasClass('selected') && Sync == true) {
-//            if (Switched == 1) {
-//                $(elem).removeClass('bird');
-//            } else {
-//                if (Switched == 2) {
-//                    $(elem).removeClass('sinkeil');
-//                } else {
-//                    $(elem).removeClass('pointer');
-//                }
-//            }
-//        } else {
-//            if ($(elem).hasClass('selected')) {
-//                return;
-//            } else {
-//                if (Switched == 1) {
-//                    $(elem).addClass('bird');
-//                } else {
-//                    if (Switched == 2) {
-//                        $(elem).addClass('sinkeil');
-//                    } else {
-//                        $(elem).addClass('pointer');
-//                    }
-//                }
-//            }
-//        }
-//    }
-
-    
     function CharOnClick(elem) {
-        if ($(elem).hasClass('selected') && Sync == true) {
+        if ($(elem).hasClass('selected') && (Sync == true)) {
+            $(elem).addClass(charClass[Switched]);
+        } else {
+            if ($(elem).hasClass('selected')) {
+                return;
+            } else {
+                $(elem).removeClass(charClass[Switched]);
+            }
         }
+
     }
 
 
-    //defining wich character is selected
-    function charslct() {
-        if (Switched == 1) {
-            Slct = "url(svg/birdskull.svg)"
-        } else {
-            if (Switched == 2) {
-                Slct = "url(svg/sinkeil.svg)"
-            } else {
-                Slct = "url(svg/pointer_hover.svg)"
-            }
-        }
-    };
-
 
     //activating the bird
+
     $('#birdskull').click(function () {
         sinkeil = false;
         bird = true;
@@ -133,6 +68,7 @@ $(function () {
     });
 
     //activating the keil
+
     $('#sinkeil').click(function () {
         bird = false;
         sinkeil = true;
@@ -141,29 +77,18 @@ $(function () {
 
 
     //adding selected class on click
-    //    $(".popper_prime").click(function () {
-    //            CharOnClick();
-    //            charslct();
-    //        if ($(this).hasClass('selected')) {
-    //            if (Sync == false) {
-    //                return;
-    //            } else {
-    //                $(this).removeClass('selected');
-    //            }
-    //        } else {
-    //            $(this).addClass('selected');
-    //        }
-    //    });
 
     $(".popper_prime").click(function () {
+        synCheck(this);
         CharOnClick(this);
-        charslct();
         if ($(this).hasClass('selected') && Sync == true) {
+            $(this).removeClass(charClass[Switched]);
             $(this).removeClass('selected');
         } else {
             if ($(this).hasClass('selected')) {
                 return;
             } else {
+                $(this).addClass(charClass[Switched]);
                 $(this).addClass('selected');
             }
         }
@@ -171,23 +96,23 @@ $(function () {
 
 
     //Set the character selected on the clicked tile
+
     $('.popper_prime').click(function () {
         synCheck(this);
         CharOnClick(this);
-        charslct();
         if (Sync == false) {
             return;
         } else {
             $('.support', this).attr({
-                style: "content:" + Slct + ";transform:rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-60%) translateX(0%) translateZ(0px);"
+                style: "content:" +Url[Switched]+ ";transform:rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-60%) translateX(0%) translateZ(0px);"
             })
         }
     });
 
     //show the selected char on hover
+
     $('.popper_prime').mouseenter(function () {
         synCheck(this);
-        charslct();
         if ($(this).hasClass('selected')) {
             if ($(this).hasClass('bird')) {
                 $('.support', this).attr({
@@ -206,13 +131,14 @@ $(function () {
             }
         } else {
             $('.support', this).attr({
-                style: "content:" + Slct + ";transform:rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-60%) translateX(0%) translateZ(45px);"
+                style: "content:" +Url[Switched]+ ";transform:rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-60%) translateX(0%) translateZ(45px);"
             });
         }
         console.log("Sync " + Sync);
 
     });
     //manage the tile's state on mouse out
+
     $('.popper_prime').mouseleave(function () {
         if ($(this).hasClass('selected')) {
             if ($(this).hasClass('bird')) {
@@ -238,7 +164,4 @@ $(function () {
         }
 
     });
-
-
-    charslct();
 });
