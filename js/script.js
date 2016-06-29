@@ -83,23 +83,22 @@ $(function () {
                     $(elem).removeClass('pointer');
                 }
             }
-        }else{
-            if($(elem).hasClass('selected')){
-                return;
-            }
         } else {
-            if (Switched == 1) {
-                $(elem).addClass('bird');
+            if ($(elem).hasClass('selected')) {
+                return;
             } else {
-                if (Switched == 2) {
-                    $(elem).addClass('sinkeil');
+                if (Switched == 1) {
+                    $(elem).addClass('bird');
                 } else {
-                    $(elem).addClass('pointer');
+                    if (Switched == 2) {
+                        $(elem).addClass('sinkeil');
+                    } else {
+                        $(elem).addClass('pointer');
+                    }
                 }
             }
         }
     }
-
 
 
 
