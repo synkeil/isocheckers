@@ -6,25 +6,10 @@ $(function () {
     var sinkeil = false;
     var Switched = 0;
     var Slct = "";
+    var charClass = ['pointer', 'bird', 'sinkeil']
     var Url = ["url(svg/pointer_hover.svg)", "url(svg/birdskull.svg)", "url(svg/sinkeil.svg)"];
 
     var Sync = true;
-
-    //checking if the selected element is the same as the hovered tile's content
-    function synCheck(elem) {
-        console.log("sinkeil " + sinkeil);
-        console.log("bird " + bird);
-        if ($(elem).hasClass('selected')) {
-            if (($(elem).hasClass('bird') && bird == true) || ($(elem).hasClass('sinkeil') && sinkeil == true) || ((bird == false && sinkeil == false) && $(elem).hasClass('pointer'))) {
-                Sync = true;
-            } else {
-                Sync = false;
-            }
-        } else {
-            Sync = true;
-        }
-    }
-
 
     //setting the switch depending on the selected char
     function Switch() {
@@ -38,6 +23,25 @@ $(function () {
             }
         }
     }
+    
+    //checking if the selected element is the same as the hovered tile's content
+    function synCheck(elem) {
+        Switch();
+        console.log("sinkeil " + sinkeil);
+        console.log("bird " + bird);
+        if ($(elem).hasClass('selected')) {
+            if (($(elem).hasClass('bird') && bird == true) || ($(elem).hasClass('sinkeil') && sinkeil == true) || (Switched == 0)) {
+                Sync = true;
+            } else {
+                Sync = false;
+            }
+        } else {
+            Sync = true;
+        }
+    }
+
+
+    
 
 
     //adding class representing selected char on click
@@ -72,34 +76,39 @@ $(function () {
     //                }
     //            }
 
+//    function CharOnClick(elem) {
+//        if ($(elem).hasClass('selected') && Sync == true) {
+//            if (Switched == 1) {
+//                $(elem).removeClass('bird');
+//            } else {
+//                if (Switched == 2) {
+//                    $(elem).removeClass('sinkeil');
+//                } else {
+//                    $(elem).removeClass('pointer');
+//                }
+//            }
+//        } else {
+//            if ($(elem).hasClass('selected')) {
+//                return;
+//            } else {
+//                if (Switched == 1) {
+//                    $(elem).addClass('bird');
+//                } else {
+//                    if (Switched == 2) {
+//                        $(elem).addClass('sinkeil');
+//                    } else {
+//                        $(elem).addClass('pointer');
+//                    }
+//                }
+//            }
+//        }
+//    }
+
+    
     function CharOnClick(elem) {
         if ($(elem).hasClass('selected') && Sync == true) {
-            if (Switched == 1) {
-                $(elem).removeClass('bird');
-            } else {
-                if (Switched == 2) {
-                    $(elem).removeClass('sinkeil');
-                } else {
-                    $(elem).removeClass('pointer');
-                }
-            }
-        } else {
-            if ($(elem).hasClass('selected')) {
-                return;
-            } else {
-                if (Switched == 1) {
-                    $(elem).addClass('bird');
-                } else {
-                    if (Switched == 2) {
-                        $(elem).addClass('sinkeil');
-                    } else {
-                        $(elem).addClass('pointer');
-                    }
-                }
-            }
         }
     }
-
 
 
     //defining wich character is selected
@@ -147,7 +156,7 @@ $(function () {
     //    });
 
     $(".popper_prime").click(function () {
-        CharOnClick();
+        CharOnClick(this);
         charslct();
         if ($(this).hasClass('selected') && Sync == true) {
             $(this).removeClass('selected');
@@ -173,13 +182,11 @@ $(function () {
                 style: "content:" + Slct + ";transform:rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-60%) translateX(0%) translateZ(0px);"
             })
         }
-        console.log(Sync);
-
-
     });
 
     //show the selected char on hover
     $('.popper_prime').mouseenter(function () {
+        synCheck(this);
         charslct();
         if ($(this).hasClass('selected')) {
             if ($(this).hasClass('bird')) {
