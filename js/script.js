@@ -8,16 +8,20 @@ $(function () {
     var Slct = "";
     var Url = ["url(svg/pointer_hover.svg)", "url(svg/birdskull.svg)", "url(svg/sinkeil.svg)"];
 
-    var Sync = false;
+    var Sync = true;
 
     //checking if the selected element is the same as the hovered tile's content
     function synCheck(elem) {
         console.log("sinkeil " + sinkeil);
         console.log("bird " + bird);
-        if (($(elem).hasClass('bird') && bird == true) || ($(elem).hasClass('sinkeil') && sinkeil == true)) {
-            Sync = true;
+        if ($(elem).hasClass('selected')) {
+            if (($(elem).hasClass('bird') && bird == true) || ($(elem).hasClass('sinkeil') && sinkeil == true) || ((bird == false && sinkeil == false) && $(elem).hasClass('pointer'))) {
+                Sync = true;
+            } else {
+                Sync = false;
+            }
         } else {
-            Sync = false;
+            Sync = true;
         }
     }
 
@@ -37,36 +41,64 @@ $(function () {
 
 
     //adding class representing selected char on click
+    //        function CharOnClick(elem) {
+    //            console.log(Switched);
+    //            if ($(elem).hasClass('selected')) {
+    //                if (Switched == 1) {
+    //                    $(elem).addClass('bird');
+    //                    $(elem).removeClass('sinkeil');
+    //                    $(elem).removeClass('pointer');
+    //    
+    //                } else {
+    //                    if (Switched == 2) {
+    //                        $(elem).addClass('sinkeil');
+    //                        $(elem).removeClass('bird');
+    //                        $(elem).removeClass('pointer');
+    //    
+    //                    } else {
+    //                        $(elem).addClass('pointer');
+    //                    }
+    //                }
+    //            } else {
+    //                    if (Switched == 1) {
+    //                        $(elem).removeClass('bird');
+    //                    } else {
+    //                        if (Switched == 2) {
+    //                            $(elem).removeClass('sinkeil');
+    //                        } else {
+    //                            $(elem).removeClass('pointer');
+    //                        }
+    //                    }
+    //                }
+    //            }
+
     function CharOnClick(elem) {
-        console.log(Switched);
         if ($(elem).hasClass('selected') && Sync == true) {
             if (Switched == 1) {
+                $(elem).removeClass('bird');
+            } else {
+                if (Switched == 2) {
+                    $(elem).removeClass('sinkeil');
+                } else {
+                    $(elem).removeClass('pointer');
+                }
+            }
+        }else{
+            if($(elem).hasClass('selected')){
+                return;
+            }
+        } else {
+            if (Switched == 1) {
                 $(elem).addClass('bird');
-                $(elem).removeClass('sinkeil');
-                $(elem).removeClass('pointer');
-
             } else {
                 if (Switched == 2) {
                     $(elem).addClass('sinkeil');
-                    $(elem).removeClass('bird');
-                    $(elem).removeClass('pointer');
-
                 } else {
                     $(elem).addClass('pointer');
                 }
             }
-        } else {
-                if (Switched == 1) {
-                    $(elem).removeClass('bird');
-                } else {
-                    if (Switched == 2) {
-                        $(elem).removeClass('sinkeil');
-                    } else {
-                        $(elem).removeClass('pointer');
-                    }
-                }
-            }
         }
+    }
 
 
 
@@ -101,23 +133,38 @@ $(function () {
 
 
     //adding selected class on click
+    //    $(".popper_prime").click(function () {
+    //            CharOnClick();
+    //            charslct();
+    //        if ($(this).hasClass('selected')) {
+    //            if (Sync == false) {
+    //                return;
+    //            } else {
+    //                $(this).removeClass('selected');
+    //            }
+    //        } else {
+    //            $(this).addClass('selected');
+    //        }
+    //    });
+
     $(".popper_prime").click(function () {
-        if ($(this).hasClass('selected')) {
-            charslct();
-            if (Sync == false) {
+        CharOnClick();
+        charslct();
+        if ($(this).hasClass('selected') && Sync == true) {
+            $(this).removeClass('selected');
+        } else {
+            if ($(this).hasClass('selected')) {
                 return;
             } else {
-                $(this).removeClass('selected');
+                $(this).addClass('selected');
             }
-        } else {
-            $(this).addClass('selected');
         }
     });
 
 
     //Set the character selected on the clicked tile
     $('.popper_prime').click(function () {
-        synCheck($(this));
+        synCheck(this);
         CharOnClick(this);
         charslct();
         if (Sync == false) {
@@ -156,6 +203,7 @@ $(function () {
                 style: "content:" + Slct + ";transform:rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-60%) translateX(0%) translateZ(45px);"
             });
         }
+        console.log("Sync " + Sync);
 
     });
     //manage the tile's state on mouse out
