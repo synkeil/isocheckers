@@ -1,12 +1,5 @@
 $(function () {
-    //adding selected class on click
-    $(".popper_prime").click(function () {
-        if ($(this).hasClass('selected')) {
-            $(this).removeClass('selected');
-        } else {
-            $(this).addClass('selected');
-        }
-    });
+
 
     //initiating the chars
     var bird = false;
@@ -14,6 +7,20 @@ $(function () {
     var Switched = 0;
     var Slct = "";
     var Url = ["url(svg/pointer_hover.svg)", "url(svg/birdskull.svg)", "url(svg/sinkeil.svg)"];
+
+    var Sync = false;
+
+    //checking if the selected element is the same as the hovered tile's content
+    function synCheck(elem) {
+        console.log("sinkeil " + sinkeil);
+        console.log("bird " + bird);
+        if (($(elem).hasClass('bird') && bird == true) || ($(elem).hasClass('sinkeil') && sinkeil == true)) {
+            Sync = true;
+        } else {
+            Sync = false;
+        }
+    }
+
 
     //setting the switch depending on the selected char
     function Switch() {
@@ -28,10 +35,11 @@ $(function () {
         }
     }
 
+
     //adding class representing selected char on click
     function CharOnClick(elem) {
         console.log(Switched);
-        if ($(elem).hasClass('selected')) {
+        if ($(elem).hasClass('selected') && Sync == true) {
             if (Switched == 1) {
                 $(elem).addClass('bird');
                 $(elem).removeClass('sinkeil');
@@ -48,17 +56,17 @@ $(function () {
                 }
             }
         } else {
-            if (Switched == 1) {
-                $(elem).removeClass('bird');
-            } else {
-                if (Switched == 2) {
-                    $(elem).removeClass('sinkeil');
+                if (Switched == 1) {
+                    $(elem).removeClass('bird');
                 } else {
-                    $(elem).removeClass('pointer');
+                    if (Switched == 2) {
+                        $(elem).removeClass('sinkeil');
+                    } else {
+                        $(elem).removeClass('pointer');
+                    }
                 }
             }
         }
-    }
 
 
 
@@ -91,6 +99,38 @@ $(function () {
         Switch();
     });
 
+
+    //adding selected class on click
+    $(".popper_prime").click(function () {
+        if ($(this).hasClass('selected')) {
+            charslct();
+            if (Sync == false) {
+                return;
+            } else {
+                $(this).removeClass('selected');
+            }
+        } else {
+            $(this).addClass('selected');
+        }
+    });
+
+
+    //Set the character selected on the clicked tile
+    $('.popper_prime').click(function () {
+        synCheck($(this));
+        CharOnClick(this);
+        charslct();
+        if (Sync == false) {
+            return;
+        } else {
+            $('.support', this).attr({
+                style: "content:" + Slct + ";transform:rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-60%) translateX(0%) translateZ(0px);"
+            })
+        }
+        console.log(Sync);
+
+
+    });
 
     //show the selected char on hover
     $('.popper_prime').mouseenter(function () {
@@ -145,13 +185,6 @@ $(function () {
 
     });
 
-    //Set the character selected on the clicked tile
-    $('.popper_prime').click(function () {
-        CharOnClick(this);
-        charslct();
-        $('.support', this).attr({
-            style: "content:" + Slct + ";transform:rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-60%) translateX(0%) translateZ(0px);"
-        })
-    });
+
     charslct();
 });
