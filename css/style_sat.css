@@ -2,8 +2,8 @@ body {background: #ffffff}
 
 /*setting up the isometric perspectiv*/
 .isometry {
-    height: 500px;
-    width: 500px;
+    height: 700px;
+    width: 700px;
     transform: 
         rotateX(60deg)
         rotateY(0deg)
@@ -28,8 +28,11 @@ body {background: #ffffff}
 
 /*making sure the grid wraps*/
 
-.popper_prime:nth-child(4),
-.popper_prime:nth-child(7){clear:left}
+.popper_prime:nth-child(6),
+.popper_prime:nth-child(11),
+.popper_prime:nth-child(16),
+.popper_prime:nth-child(21)
+{clear:left}
 
 /*styling and positioning the individual tiles*/
 .popper {
@@ -38,14 +41,14 @@ body {background: #ffffff}
     position: absolute;
     left: 0;
     top:0;
-    transition: transform .3s cubic-bezier(.54, 0, .39, 1.46);
+    transition: all .3s cubic-bezier(.54, 0, .39, 1.46);
     transform-style: preserve-3d;
 }
 
 /*styling the upper tile*/
 .pop_main_light {background: #9debeb;}
 .pop_main_dark  {background: #58b4d6;}
-.pop_main       {z-index: 1}
+.pop_main       {z-index: 1;border: solid 1px #fff}
 .support {
     z-index: 2;
     transform: 
@@ -56,7 +59,7 @@ body {background: #ffffff}
         translateX(0%) 
         translateZ(0px);
     pointer-events: none;
-    background: rgba(255, 107, 107, 0.56);
+    
 }
 
 /*styling the lower tiles*/
@@ -65,28 +68,11 @@ body {background: #ffffff}
 .pop3 {background: rgba(255, 0, 0, 0.46);}
 
 /*the hover effect*/
-.popper_prime:hover .support  {transform: translateZ(45px);z-index:4}
+.popper_prime:hover .support  {transform: rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-60%) translateX(0%) translateZ(45px);z-index:4}
 .popper_prime:hover .pop_main {transform: translateZ(45px);z-index:3}
 .popper_prime:hover .pop1     {transform: translateZ(32px) rotateY(-4deg);z-index:2}
 .popper_prime:hover .pop2     {transform: translateZ(25px)rotateY(2deg);z-index:2}
 .popper_prime:hover .pop3     {transform: translateZ(10px);z-index:2}
-
-/*the pointer magic*/
-
-
-/*
-.popper_prime:hover .pop_main:after{
-    display:block;
-    opacity: 1;
-    transform:
-        rotateX(-50deg)
-        rotateY(40deg)
-        rotateZ(-30deg)
-        translateY(-30%)
-        translateX(0%)
-        translateZ(45px)
-}
-*/
 
 
 /*img {object-fit: cover;height: 100%;width: 100%}*/

@@ -30,22 +30,22 @@ $(function () {
 //  defining wich character is selected
     function charslct() {
         if (bird == true) {
-            Slct = "url(svg/birdskull.svg)"
+            Slct = "url(svg/birdskull.svg)";
         } else {
             if (sinkeil == true) {
-                Slct = "url(svg/sinkeil.svg)"
+                Slct = "url(svg/sinkeil.svg)";
             } else {
-                Slct = "url(svg/pointer_hover.svg)"
+                Slct = "url(svg/pointer_hover.svg)";
             }
         }
-    };
+    }
 
     //show the selected char on hover
     $('.popper_prime').mouseenter(function () {
         charslct();
         $('.support', this).attr({
             style: "content:" + Slct + ";transform:rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-60%) translateX(2%) translateZ(0px);"
-        })
+        });
     });
     //manage the tile's state on mouse out
     $('.popper_prime').mouseleave(function () {
@@ -53,11 +53,11 @@ $(function () {
         if ($(this).hasClass('selected')) {
             $('.support', this).attr({
                 style: "content:" + Slct + ";"
-            })
+            });
         } else {
             $('.support', this).attr({
                 style: "content:'';"
-            })
+            });
         }
 
     });
@@ -67,7 +67,7 @@ $(function () {
         charslct();
         $('.support', this).attr({
             style: "content:" + Slct + ";transform:rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-60%) translateX(2%) translateZ(0px);"
-        })
+        });
     });
     charslct();
 });
