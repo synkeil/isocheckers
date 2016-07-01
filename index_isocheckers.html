@@ -4,18 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Show and tell</title>
-    <link rel="stylesheet" href="css/style_sat.css">
-</head>
+    <link rel="stylesheet" href="css/style_sat.css"> </head>
 
 <body>
     <style>
         /*    making poppers    */
         /*    div.isometry>(div.popper_prime>div.popper.pop_main+div.popper.pop$*3)*9    */
     </style>
-    <main>
-    </main>
-    <div class="chars"><img src="svg/birdskull.svg" alt="birdskull" id="birdskull"></div>
-    <div class="chars" id="sinkeil"><img src="svg/sinkeil.svg" alt="sinkeil"></div>
+    <main> </main>
+    <div id="wrapper_slider" class="fl-c-w">
+        <!-- the slider pannels -->
+        <div id="panel1" class="panel bgc1">
+            <div class="chars"><img src="svg/birdskull.svg" alt="birdskull" id="birdskull"></div>
+        </div>
+        <div id="panel2" class="panel bgc2">
+            <div class="chars" id="sinkeil"><img src="svg/sinkeil.svg" alt="sinkeil"></div>
+        </div>
+        <div id="panel3" class="panel bgc3">
+            <h1>Dis be the third panel</h1></div>
+    </div>
+    <!-- Nav buttons -->
+    <div id="buttons">
+        <a href="#" id="prev">
+            <div class="button">&ang;</div>
+        </a>
+        <a href="#panel1" id="panelButton1">
+            <div class="button">1</div>
+        </a>
+        <a href="#panel2" id="panelButton2">
+            <div class="button">2</div>
+        </a>
+        <a href="#panel3" id="panelButton3">
+            <div class="button">3</div>
+        </a>
+        <a href="#" id="next">
+            <div class="button">&#125;</div>
+        </a>
+    </div>
     <div class="isometry">
         <div class="popper_prime">
             <div class="popper support"></div>

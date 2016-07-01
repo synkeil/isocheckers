@@ -81,3 +81,52 @@ body {background: #ffffff}
 
 .chars{height:250px;width:150px}
 .hide{opacity:0}
+
+/*the slider*/
+
+/*global layout*/
+
+a {
+  color:#272727;
+  text-decoration:none
+}
+/*Styling the buttons*/
+.button {
+  background: #E3E2DD;
+  height: 25px;
+  width: 25px;
+  border-radius: 15px;
+  text-align: center;
+  margin: auto
+}
+
+/*button layout*/
+#buttons {
+  display: flex;
+  margin-top: 10px
+}
+
+/*Setting up the layout of the elements in the page*/
+.fl-c-w {
+  display: flex;
+  flex-flow: column wrap
+}
+
+/*choosing a background color for the pannels*/
+.bgc1 {background: #f55}
+.bgc2 {background: #b5b}
+.bgc3 {background: #658}
+
+/*This is where you set the slider's dimesions*/
+#wrapper_slider {
+  height: 250px;
+  width: 550px;
+  overflow: hidden;
+  text-align: center
+}
+
+/*This is where you set the pannel's dimesions*/
+.panel {
+  height: 100%;
+  width: 550px
+}
