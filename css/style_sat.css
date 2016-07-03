@@ -1,4 +1,4 @@
-body {background: #ffffff}
+body {background: #f5f5ee}
 
 /*setting up the isometric perspectiv*/
 .isometry {
@@ -79,8 +79,9 @@ body {background: #ffffff}
 
 /*Chars*/
 
-.chars{height:250px;width:150px}
+.chars{height:150px;width:150px; margin: auto;}
 .hide{opacity:0}
+#charStatsContainer{width: 250px;margin-top: 5%}
 
 /*the slider*/
 
@@ -109,24 +110,20 @@ a {
 /*Setting up the layout of the elements in the page*/
 .fl-c-w {
   display: flex;
-  flex-flow: column wrap
+  flex-flow: column wrap;
 }
-
-/*choosing a background color for the pannels*/
-.bgc1 {background: #f55}
-.bgc2 {background: #b5b}
-.bgc3 {background: #658}
 
 /*This is where you set the slider's dimesions*/
 #wrapper_slider {
   height: 250px;
-  width: 550px;
+  width: 250px;
   overflow: hidden;
   text-align: center
 }
 
 /*This is where you set the pannel's dimesions*/
+
 .panel {
-  height: 100%;
-  width: 550px
+    height: 250px;
+    width: 250px
 }
