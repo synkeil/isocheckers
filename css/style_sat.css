@@ -1,4 +1,4 @@
-body {background: #ffffff}
+body {background: #f5f5ee}
 
 /*setting up the isometric perspectiv*/
 .isometry {
@@ -79,5 +79,51 @@ body {background: #ffffff}
 
 /*Chars*/
 
-.chars{height:250px;width:150px}
+.chars{height:150px;width:150px; margin: auto;}
 .hide{opacity:0}
+#charStatsContainer{width: 250px;margin-top: 5%}
+
+/*the slider*/
+
+/*global layout*/
+
+a {
+  color:#272727;
+  text-decoration:none
+}
+/*Styling the buttons*/
+.button {
+  background: #E3E2DD;
+  height: 25px;
+  width: 25px;
+  border-radius: 15px;
+  text-align: center;
+  margin: auto
+}
+
+/*button layout*/
+#buttons {
+  display: flex;
+  margin-top: 10px
+}
+
+/*Setting up the layout of the elements in the page*/
+.fl-c-w {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+/*This is where you set the slider's dimesions*/
+#wrapper_slider {
+  height: 250px;
+  width: 250px;
+  overflow: hidden;
+  text-align: center
+}
+
+/*This is where you set the pannel's dimesions*/
+
+.panel {
+    height: 250px;
+    width: 250px
+}
