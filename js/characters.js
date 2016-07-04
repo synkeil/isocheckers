@@ -8,15 +8,41 @@ $(function () {
     }
 
     function Character() {
-        this.health = 0;
-        this.mana = 0;
-        this.skills = "";
-        this.xp = 0;
+        var health = 0,
+            mana = 0,
+            skills = [""],
+            xp = 0,
+            armor = 0,
+            res = 0,
+            atk = 25,
+            wpnAtk = 10,
+            mAtk = 0;
+        
+        this.setAtk = function (atkSet) {
+            atk = atkSet;
+        };
+        
+        this.getPhysAtk = function () {
+            return atk + this.wpnAtk;
+        };
+        
+        this.setmAtk = function (mAtkSet) {
+            mAtk = mAtkSet;
+        };
+        
+        this.getMAtk = function () {
+            return mAtk + this.mAtk;
+        };
+        
     }
-    var Skull = new Character();
-    Skull.health = 100;
-    Skull.mana = 250;
-    Skull.xp = 0;
+    var skull = new Character();
+    skull.health = 100;
+    skull.mana = 250;
+    skull.xp = 0;
+    
+    var sinkeil = new Character();
+    
+    
     
     function setD(elem, d) {$(elem).attr("d", d); }
     function setX(elem, x) {$(elem).attr("x", x); }
@@ -36,12 +62,12 @@ $(function () {
    
     function HealthBar(elem) {
         setHeight(elem, 15);
-        setWidth(elem, Skull.health);
+        setWidth(elem, skull.health);
         setFill(elem, "#f55");
     }
     function ManaBar(elem) {
         setHeight(elem, 15);
-        setWidth(elem, Skull.mana);
+        setWidth(elem, skull.mana);
         setFill(elem, "#55b1ff");
         setY(elem, "11%");
     }
@@ -49,14 +75,13 @@ $(function () {
     function XpTxt(elem) {
         setY(elem, "32%");
         $(elem).html(function () {
-            return Skull.xp + "/150 xp<span>";
+            return skull.xp + "/150 xp<span>";
         });
     }
     
     XpTxt($('#xpText'));
     HealthBar($('#healthBar'));
     ManaBar($('#manaBar'));
-    
     
     
     
