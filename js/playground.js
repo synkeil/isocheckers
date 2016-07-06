@@ -39,6 +39,11 @@ $(function () {
         return $('.support').eq(pos);
     }
     
+    /*Toggling between area of dammage*/
+    $('#aoe_activation').click(function () {aoe = true, singleTarget = false});
+    $('#single_activation').click(function () {aoe = false, singleTarget = true});
+
+    
     
     /*Creating the grid on load*/
     $(document).ready(function () {
