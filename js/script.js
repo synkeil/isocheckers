@@ -8,7 +8,8 @@ $(function () {
         Slct = charClass[Switched],
         Sync = true,
         count = 0,
-        Panel = ["#panel1", "#panel2", "#panel3"];
+        Panel = ["#panel1", "#panel2", "#panel3"],
+        indexSlct;
     //setting the switch depending on the selected char
     function Switch() {
         if (bird === true) {
@@ -86,6 +87,8 @@ $(function () {
     });
     //show the selected char on hover
     $('.popper_prime').mouseenter(function () {
+        indexSlct = $('.popper_prime').index($('.selected'));
+        console.log(indexSlct);
         synCheck(this);
         if ($(this).hasClass('selected')) {
             if ($(this).hasClass('bird')) {
