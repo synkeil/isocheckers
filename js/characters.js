@@ -1,4 +1,8 @@
 $(function () {
+  
+  function minMax(min, max){
+    return (Math.random() * (max - min) + min).toFixed(0);
+  }
     
     function extend(Child, Parent) {
         var Temp = function () {};
@@ -59,6 +63,8 @@ $(function () {
     function setStrokewidth(elem, strokewidth) {$(elem).attr("stroke-width", strokewidth); }
     function setStrokedasharray(elem, strokedasharray) {$(elem).attr("stroke-dasharray", strokedasharray); }
     function setStrokedashoffset(elem, strokedashoffset) {$(elem).attr("stroke-dashoffset", strokedashoffset); }
+  
+  skull.health = minMax(1, 200);
    
     function HealthBar(elem) {
         setHeight(elem, 15);
@@ -82,8 +88,6 @@ $(function () {
     XpTxt($('#xpText'));
     HealthBar($('#healthBar'));
     ManaBar($('#manaBar'));
-    
-    
-    
-    
+
+  console.log(skull.health);
 });
