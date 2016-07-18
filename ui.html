@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ui</title>
+</head>
+
+<body>
+  <style>
+    
+    body {background: #faf8ef;}
+    /* Reseting the slider's style */
+    input[type=range] {
+      background: transparent;
+      -webkit-appearance: none;
+      margin-top: 50px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+    }
+    input[type=range]:focus {outline: none;}
+    .areaSlider::-ms-track {
+      width: 100%;
+      cursor: pointer;
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+    
+    input[type=range]::-webkit-slider-runnable-track{
+      width: 100%;
+      height: 8px;
+      cursor: pointer;
+      background: #5db9db;
+      border-radius: 1.3px;
+      border: 0.2px solid #010101;
+    }
+    
+    
+    /* Applying new style to thumb */
+    .areaSlider::-webkit-slider-thumb {
+      background: url(svg/slider.svg) no-repeat center;
+      height: 40px;
+      width: 40px;
+      margin-top:-17px;
+      transition: .2s ease;
+    }
+    
+    .areaSlider::-webkit-slider-thumb:hover{
+      transform: rotate(90deg);
+    }
+    /* Applying new style to track */
+    .areaSlider::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 8px;
+      cursor: pointer;
+      background: #5db9db;
+      border-radius: 1.3px;
+      border: 0.2px solid #010101;
+    }
+    
+    .rangeSlider::-webkit-slider-thumb{
+      background: url(svg/sinkeil.svg) no-repeat center;
+      height: 50px;
+      width: 50px;
+      margin-top:-22px;
+    }
+    
+  </style>
+  <main>
+    <input type="range" class="areaSlider" /><br>
+    <input type="range" class="powerSlider" /><br>
+    <input type="range" class="rangeSlider" />
+  </main>
+  <script>
+  </script>
+</body>
+
+</html>

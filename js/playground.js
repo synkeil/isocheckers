@@ -1,4 +1,9 @@
 $(function () {
+  
+  /***************
+  Globals and defs
+  ***************/
+  
   var aoe = false,
     singleTarget = true,
     pos,
@@ -9,12 +14,15 @@ $(function () {
     tempRand = 0,
     minMaxRand,
     gridTab = [];
-
-  /*******************
-  character management
-  *******************/
-
-  function minMax(min, max) {
+  
+  function extend(Child, Parent) {
+    Temp = function () {};
+    Temp.prototype = Parent.prototype;
+    Child.prototype = new Temp();
+    Child.prototype.constructor = Child;
+  }
+  
+    function minMax(min, max) {
     minMaxRand = (Math.random() * (max - min) + min).toFixed(0);
     while (gridTab[minMaxRand] === 1) {
       minMaxRand = (Math.random() * (max - min) + min).toFixed(0);
@@ -23,26 +31,22 @@ $(function () {
     return minMaxRand;
   }
 
-
-
-
-  function extend(Child, Parent) {
-    Temp = function () {};
-    Temp.prototype = Parent.prototype;
-    Child.prototype = new Temp();
-    Child.prototype.constructor = Child;
-  }
+  /*******************
+  character management
+  *******************/
 
   function Character() {
-    var health = 0,
-      mana = 0,
-      skills = [""],
-      xp = 0,
-      armor = 0,
-      res = 0,
-      atk = 25,
-      wpnAtk = 10,
-      mAtk = 0;
+    var maxHealth = 0,
+        maxMana = 0,
+        currentHealth,
+        currentMana,
+        skills = [""],
+        xp = 0,
+        armor = 0,
+        res = 0,
+        atk = 25,
+        wpnAtk = 10,
+        mAtk = 0;
 
     this.setAtk = function (atkSet) {
       atk = atkSet;
@@ -62,8 +66,8 @@ $(function () {
 
   }
   var skull = new Character();
-  skull.health = 100;
-  skull.mana = 250;
+  skull.maxHealth = 100;
+  skull.maxMana = 250;
   skull.xp = 0;
 
   var sinkeil = new Character();
@@ -129,32 +133,56 @@ $(function () {
     $(elem).attr("stroke-dashoffset", strokedashoffset);
   }
 
-  skull.health = minMax(1, 200);
+  function setTextHealth(elem) {
+    $(elem).html(function (){
+      return skull.currentHealth+" / "+skull.maxHealth+" HP";
+    });
+  }
+  
+  function setTextMana(elem) {
+    $(elem).html(function (){
+      return skull.currentMana+" / "+skull.maxMana+" MP";
+    });
+  }
 
   function HealthBar(elem) {
-    setHeight(elem, 15);
-    setWidth(elem, skull.health);
+    setHeight(elem, 25);
+    setWidth(elem, skull.currentHealth);
     setFill(elem, "#f55");
   }
 
   function ManaBar(elem) {
-    setHeight(elem, 15);
-    setWidth(elem, skull.mana);
+    setHeight(elem, 25);
+    setWidth(elem, skull.currentMana);
     setFill(elem, "#55b1ff");
-    setY(elem, "11%");
+    
   }
 
   function XpTxt(elem) {
-    setY(elem, "32%");
     $(elem).html(function () {
-      return skull.xp + "/150 xp<span>";
+      return skull.xp + "/150 xp";
     });
   }
+  
+  skull.maxHealth = minMax(150, 200);
+  skull.currentHealth = skull.maxHealth;
+  skull.maxMana = minMax(290, 400);
+  skull.currentMana = skull.maxMana;
 
-  XpTxt($('#xpText'));
-  HealthBar($('#healthBar'));
-  ManaBar($('#manaBar'));
+  XpTxt($('#char_xpText'));
+  HealthBar($('#char_healthBar'));
+  ManaBar($('#char_manaBar'));
 
+  setTextHealth($('#char_healthText'));
+  setTextMana($('#char_manaText'));
+  
+  XpTxt($('#enemy_xpText'));
+  HealthBar($('#enemy_healthBar'));
+  ManaBar($('#enemy_manaBar'));
+
+  setTextHealth($('#enemy_healthText'));
+  setTextMana($('#enemy_manaText'));
+  
   /*****************
   Managing the world
   *****************/
@@ -203,17 +231,6 @@ $(function () {
     return $('.support').eq(pos);
   }
 
-
-  function spawnTile() {
-    return $('.support').eq(minMax(1, 24));
-
-  }
-
-  function spawn(monster) {
-    spawnTile().html("<img src=" + monster + " alt='Monster'/>");
-    console.log(minMaxRand);
-  }
-
   /*Toggling between area of dammage*/
   $('#aoe_activation').click(function () {
     aoe = true;
@@ -223,8 +240,17 @@ $(function () {
     aoe = false;
     singleTarget = true;
   });
+  
+  /* spawning tiles and mobs */
+  function spawnTile() {
+    return $('.support').eq(minMax(1, 24));
 
+  }
 
+  function spawn(monster) {
+    spawnTile().html("<img src=" + monster + " alt='Monster'/>");
+    console.log(minMaxRand);
+  }
 
   /*Creating the grid on load*/
   $(document).ready(function () {
@@ -237,8 +263,6 @@ $(function () {
     spawn(birdUrl);
     spawn(sinkeilUrl);
     spawn(sinkeilUrl);
-    spawn(sinkeilUrl);
-    spawn(birdUrl);
     spawn(birdUrl);
 
   });

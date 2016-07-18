@@ -1,71 +1,225 @@
-body {background: #f5f5ee}
+body {
+  background: #f5f5ee
+}
+
+
+/*******************
+  Styling the grid
+*******************/
+
 
 /*setting up the isometric perspectiv*/
+
 .isometry {
-    height: 1000px;
-    width: 1000px;
-    transform: 
-        rotateX(60deg)
-        rotateY(0deg)
-        rotateZ(50deg)
-        translateX(-100%)
-        translateY(-20%);
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform-style: preserve-3d;
+  height: 1000px;
+  width: 1000px;
+  transform: rotateX(60deg) rotateY(0deg) rotateZ(50deg) translateX(-100%) translateY(-20%);
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform-style: preserve-3d;
 }
 
+
 /*styling and positioning the tiles containers*/
+
 .popper_prime {
-    float:left;
-    height: 125px;
-    width: 125px;
-    position: relative;
-    left: 0;
-    top:0
+  float: left;
+  height: 125px;
+  width: 125px;
+  position: relative;
+  left: 0;
+  top: 0
 }
+
 
 /*making sure the grid wraps*/
 
-.popper_prime:nth-child(8n+9)
-{clear:left}
+.popper_prime:nth-child(8n+9) {
+  clear: left
+}
+
 
 /*styling and positioning the individual tiles*/
+
 .popper {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top:0;
-    transition: all .15s cubic-bezier(.54, 0, .39, 1.46);
-    transform-style: preserve-3d;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all .15s cubic-bezier(.54, 0, .39, 1.46);
+  transform-style: preserve-3d;
 }
+
 
 /*styling the upper tile*/
-.pop_main_light {background: #9debeb;}
-.pop_main_dark  {background: #58b4d6;}
-.pop_main       {z-index: 1;border: solid 1px #fff}
-.support {
-    z-index: 2;
-    transform: 
-        rotateX(-50deg)
-        rotateY(40deg) 
-        rotateZ(-30deg) 
-        translateY(-30%) 
-        translateX(0%) 
-        translateZ(0px);
-    pointer-events: none;
+
+.pop_main_light {
+  background: #9debeb;
 }
 
+.pop_main_dark {
+  background: #58b4d6;
+}
+
+.pop_main {
+  z-index: 1;
+  border: solid 1px #fff
+}
+
+.support {
+  z-index: 2;
+  transform: rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-30%) translateX(0%) translateZ(0px);
+  pointer-events: none;
+}
+
+
 /*styling the lower tiles*/
-.pop1 {background: rgba(255, 85, 85, 0.49)}
-.pop2 {background: rgba(22, 175, 169, 0.47);}
-.pop3 {background: rgba(255, 0, 0, 0.46);}
+
+.pop1 {
+  background: rgba(255, 85, 85, 0.49)
+}
+
+.pop2 {
+  background: rgba(22, 175, 169, 0.47);
+}
+
+.pop3 {
+  background: rgba(255, 0, 0, 0.46);
+}
+
 
 /*the hover effect*/
-.activate_support {transform: rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-60%) translateX(0%) translateZ(45px);z-index:4}
-.activate_pop_main {transform: translateZ(45px);z-index:3}
-.activate_pop1     {transform: translateZ(32px) rotateY(4deg);z-index:2}
-.activate_pop2     {transform: translateZ(15px)rotateY(-2deg);z-index:2}
-.activate_pop3     {transform: translateZ(3px);z-index:2}
+
+.activate_support {
+  transform: rotateX(-50deg) rotateY(40deg) rotateZ(-30deg) translateY(-60%) translateX(0%) translateZ(45px);
+  z-index: 4
+}
+
+.activate_pop_main {
+  transform: translateZ(45px);
+  z-index: 3
+}
+
+.activate_pop1 {
+  transform: translateZ(32px) rotateY(4deg);
+  z-index: 2
+}
+
+.activate_pop2 {
+  transform: translateZ(15px)rotateY(-2deg);
+  z-index: 2
+}
+
+.activate_pop3 {
+  transform: translateZ(3px);
+  z-index: 2
+}
+
+
+/************************
+  Styling the battle ui
+************************/
+
+#battleUi {
+  position: fixed;
+  bottom: 10px;
+  left: 0px;
+  width: 100vw;
+  z-index: 40;
+}
+
+.portrait {
+  width: 120px;
+}
+
+
+/*main char ui*/
+
+#charUi {
+  width: 50%;
+  float: left;
+  display:flex;
+}
+
+#charId{
+  width: 15%;
+}
+
+#charId img{
+  margin-left:10px;
+}
+
+.charText {
+  margin-left:20px;
+}
+.charRessources {
+  width: 85%;
+  height:7vw;
+  align-self: flex-end;
+}
+
+.charRessources svg{
+  overflow:visible;
+}
+
+#char_xpText{
+  height:20%;
+  transform:translateY(-20px);
+  text-align: center;
+}
+
+#char_healthBar{
+  transform:translateY(15px) translateX(135px);
+}
+
+#char_manaBar{
+  transform:translateY(50px) translateX(135px);
+}
+
+/*enemy UI*/
+
+#enemyUi {
+  width: 50%;
+  background: rgba(64, 208, 214, 0.5);
+  display:flex;
+}
+
+#enemyId{
+  width: 15%;
+  background: rgba(0, 0, 0, 0.27);
+}
+
+.enemyPortrait {
+	
+}
+
+.enemyText {
+  margin-right:20px;
+  text-align: right
+}
+.enemyRessources {
+  width: 85%;
+  height:7vw;
+  align-self: flex-end;
+  background: rgba(0, 0, 0, 0.27);
+}
+
+.enemyRessources svg{
+  overflow:visible;
+}
+
+#enemy_xpText{
+  height:20%;
+  transform:translateY(-20px);
+  text-align: center;
+}
+
+#enemy_healthBar{
+  transform:translateY(15px) translateX(135px);
+}
+
+#enemy_manaBar{
+  transform:translateY(50px) translateX(135px);
+}

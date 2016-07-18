@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="-2 0 66 50" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <style>
+    @keyframes pulsateCenter{
+      0%  {transform:scale(1.1) rotate(45deg)}
+    }
+    @keyframes pulsateLeft{
+      0%  {transform:translateX(-2px)}
+    }
+    @keyframes pulsateRight{
+      0%  {transform: rotate(180deg) translateX(-125px) translateY(-102px)}
+    }
+    #center{
+      transform-origin:50% 50%;
+      transform:rotate(45deg);
+      animation: pulsateCenter .5s ease infinite alternate;
+    }  
+    #left{
+      animation: pulsateLeft .5s ease infinite alternate;
+    }
+    #right{
+    transform:rotate(180deg) translateX(-123px) translateY(-102px);
+      animation: pulsateRight .5s ease infinite alternate;
+    }
+  </style>
+  <path id="left" d="M 2.5 21.136 C 0.013 23.734 0.013 26.3 2.51 28.9 L 21 48.2 C 23.53 50.8 24.776 49.5 24.776 44.3 L 24.776 43.74 L 10.54 28.926 C 8.045 26.327 8.045 23.73 10.54 21.13 L 24.776 6.32 L 24.776 5.76 C 24.776 0.564 23.53 -0.735 21 1.864 Z" style="fill: #f55; stroke: #000;"/>
+  <path id="right" d="M 63.04 72.67 C 60.544 75.27 60.544 77.87 63.04 80.47 L 81.56 99.74 C 84.06 102.34 85.31 101.04 85.31 95.84 L 85.31 95.275 L 71.073 80.463 C 68.576 77.864 68.576 75.266 71.073 72.667 L 85.31 57.855 L 85.31 57.3 C 85.31 52.1 84.06 50.8 81.56 53.4 Z" style="fill: #F55; stroke: #000;"/>
+  <rect id="center" x="19" y="13.5" width="23.38" height="23.384" rx="3.64" ry="3.64" style="fill: #F55; stroke: #000;" transform="rotate(45)"/>
+</svg>
