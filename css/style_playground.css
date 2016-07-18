@@ -171,28 +171,24 @@ body {
 }
 
 #char_healthBar{
-  transform:translateY(15px) translateX(135px);
+  x:20%;
+  y:15px;
 }
 
 #char_manaBar{
-  transform:translateY(50px) translateX(135px);
+  x:20%;
+  y:50px;
 }
 
 /*enemy UI*/
 
 #enemyUi {
-  width: 50%;
-  background: rgba(64, 208, 214, 0.5);
+  width: 50vw;
   display:flex;
 }
 
 #enemyId{
   width: 15%;
-  background: rgba(0, 0, 0, 0.27);
-}
-
-.enemyPortrait {
-	
 }
 
 .enemyText {
@@ -203,7 +199,6 @@ body {
   width: 85%;
   height:7vw;
   align-self: flex-end;
-  background: rgba(0, 0, 0, 0.27);
 }
 
 .enemyRessources svg{
@@ -217,9 +212,24 @@ body {
 }
 
 #enemy_healthBar{
-  transform:translateY(15px) translateX(135px);
+  x:-80%;
+  y:15px;
+  transform: scaleX(-1);
+/*  transform:translateY(15px) translateX(135px);*/
+}
+
+#enemy_healthText{
+  x:10%;
+  y:20;
 }
 
 #enemy_manaBar{
-  transform:translateY(50px) translateX(135px);
+  x:-80%;
+  y:50px;
+  transform: scaleX(-1);
+}
+
+#enemy_manaText{
+  x:-90;
+  y:50;
 }
