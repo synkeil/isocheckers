@@ -4,82 +4,80 @@
 <head>
   <meta charset="UTF-8">
   <title>isoPlayground</title>
-  <link rel="stylesheet" href="css/style_playground.css">
-</head>
+  <link rel="stylesheet" href="css/style_playground.css"> </head>
 
 <body>
   <main>
     <button id="aoe_activation">AOE</button>
     <button id="single_activation">Single target</button>
-
-
-    <section id="grid" class="isometry">
-
-    </section>
-
-    <!-------------
+    <section id="sliders">
+      <input type="range" class="areaSlider" min="1" value="2" max="3" step="1" />
+      <br>
+      <input type="range" class="powerSlider" min="1" value="2" max="3" step="1" />
+      <br>
+      <input type="range" class="rangeSlider" min="1" value="2" max="3" step="1" />
+  </main>
+  </section>
+  <section id="grid" class="isometry"> </section>
+  <!---------------------
          characters UI
-        -------------->
-
-    <section id="battleUi">
-      <section id="charUi">
-        <div id="charId">
-          <img src="svg/birdskull.svg" alt="" class="charPortrait portrait">
-          <div class="charText">
-            <p class="charName">Ishak Voidweller</p>
-            <p class="job">Class: Planeteer</p>
-            <p class="lvl">Lvl: ???</p>
-          </div>
+    ---------------------->
+  <section id="battleUi">
+    <section id="charUi">
+      <div id="charId"> <img src="svg/birdskull.svg" alt="" class="charPortrait portrait">
+        <div class="charText">
+          <p class="charName">Ishak Voidweller</p>
+          <p class="job">Class: Planeteer</p>
+          <p class="lvl">Lvl: ???</p>
         </div>
-        <div class="charRessources">
-          <svg height="80%" width="100%">
-            <g class="health_group">
-              <text y="30" x="20" id="char_healthText"></text>
-              <rect id="char_healthBar"></rect>
-            </g>
-            <g class="mana_group">
-              <text y="70" x="20" id="char_manaText"></text>
-              <rect id="char_manaBar"></rect>
-            </g>
-          </svg>
-          <p id="char_xpText"></p>
-        </div>
-
-      </section>
-
-      <section id="enemyUi">
-       <div class="enemyRessources">
-          <svg height="80%" width="100%">
-            <g class="health_group">
-              <text x="85%" y="30px" id="enemy_healthText"></text>
-              <rect id="enemy_healthBar"></rect>
-            </g>
-            <g class="mana_group">
-              <text x="85%" y="70px" id="enemy_manaText"></text>
-              <rect id="enemy_manaBar"></rect>
-            </g>
-          </svg>
-          <p id="enemy_xpText"></p>
-        </div>
-        <div id="enemyId">
-          <img src="svg/birdskull.svg" alt="" class="enemyPortrait portrait">
-          <div class="enemyText">
-            <p class="enemyName">Ishak Voidweller</p>
-            <p class="job">Class: Planeteer</p>
-            <p class="lvl">Lvl: ???</p>
-          </div>
-        </div>
-      </section>
-
+      </div>
+      <div class="charRessources">
+        <svg height="80%" width="100%">
+          <g class="health_group">
+            <text y="30" x="20" id="char_healthText"></text>
+            <rect id="char_healthBar"></rect>
+          </g>
+          <g class="mana_group">
+            <text y="70" x="20" id="char_manaText"></text>
+            <rect id="char_manaBar"></rect>
+          </g>
+        </svg>
+        <p id="char_xpText"></p>
+      </div>
     </section>
+    <section id="enemyUi">
+      <div class="enemyRessources">
+        <svg height="80%" width="100%">
+          <g class="health_group">
+            <text x="85%" y="30px" id="enemy_healthText"></text>
+            <rect id="enemy_healthBar"></rect>
+          </g>
+          <g class="mana_group">
+            <text x="85%" y="70px" id="enemy_manaText"></text>
+            <rect id="enemy_manaBar"></rect>
+          </g>
+        </svg>
+        <p id="enemy_xpText"></p>
+      </div>
+      <div id="enemyId"> <img src="svg/birdskull.svg" alt="" class="enemyPortrait portrait">
+        <div class="enemyText">
+          <p id="enemyName"></p>
+          <p class="job">Class: Planeteer</p>
+          <p class="lvl">Lvl: ???</p>
+        </div>
+      </div>
+    </section>
+  </section>
+  <section id="skillBar">
 
+  </section>
+  <div id="follow"></div>
   </main>
   <script src="js/jquery-3.0.0.min.js"></script>
-  <script src="js/global.js"></script>
-  <script src="js/world.js"></script>
-  <script src="js/entity.js"></script>
-  <script src="js/renderer.js"></script>
   <script src="js/script_main.js"></script>
+  <script src="js/entity.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/renderer.js"></script>
 </body>
 
 </html>

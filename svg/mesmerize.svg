@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <style>
+    path {transform-origin:50%; fill:rgba(255, 85, 85, 0.25);stroke: #000}
+    
+    path:first-of-type  {animation: spin .5s linear }
+    path:nth-of-type(2) {animation: spin .5s linear .1s}
+    path:nth-of-type(3) {animation: spin .5s linear .2s}
+    path:nth-of-type(4) {animation: spin .5s linear .3s}
+    path:last-of-type   {animation: spin .5s linear .4s}
+    
+    @keyframes spin{
+      0%   {transform:rotate(0deg) scale(1.4)}
+      50%   {transform:rotate(180deg) scale(1)}
+      100%  {transform:rotate(360deg) scale(1.4)}
+    }
+  </style>
+  <path d="M 250 149.888 L 345.853 205.229 L 345.853 315.91 L 250 371.25 L 154.147 315.91 L 154.147 205.229 Z" bx:shape="n-gon 250 260.569 110.681 110.681 6 0 1@d412e7d2"/>
+  <path d="M 250 149.888 L 345.853 205.229 L 345.853 315.91 L 250 371.25 L 154.147 315.91 L 154.147 205.229 Z" bx:shape="n-gon 250 260.569 110.681 110.681 6 0 1@d412e7d2"/>
+  <path d="M 250 149.888 L 345.853 205.229 L 345.853 315.91 L 250 371.25 L 154.147 315.91 L 154.147 205.229 Z" bx:shape="n-gon 250 260.569 110.681 110.681 6 0 1@d412e7d2"/>
+  <path d="M 250 149.888 L 345.853 205.229 L 345.853 315.91 L 250 371.25 L 154.147 315.91 L 154.147 205.229 Z" bx:shape="n-gon 250 260.569 110.681 110.681 6 0 1@d412e7d2"/>
+  <path d="M 250 149.888 L 345.853 205.229 L 345.853 315.91 L 250 371.25 L 154.147 315.91 L 154.147 205.229 Z" bx:shape="n-gon 250 260.569 110.681 110.681 6 0 1@d412e7d2"/>
+</svg>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="196.026 187.314 114.524 121.632" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <style>
+        path {
+          fill: none;
+          stroke: #000;
+          stroke-width:2;
+          transform-origin: 50%;
+          stroke-dasharray: 33%, 1%;
+          stroke-dashoffset: 17%;
+          transform:scale(0.5)
+
+        }
+      
+      path:first-of-type{
+        fill:rgba(255, 85, 85, 0.50);
+      }
+      
+      path:nth-of-type(2){
+        fill:rgba(255, 85, 85, 0.50);
+        transform:rotate(90deg) scale(0.5);
+      }
+      
+      path:nth-of-type(3){
+        animation: fade1 5s linear 0s infinite;
+        }
+      
+      path:nth-of-type(4){
+        animation: fade2 5s linear 1s infinite;
+        transform:rotate(90deg) scale(0.5);
+      }
+      
+      path:nth-of-type(5){
+        animation: fade1 5s linear 2s infinite;
+      }
+      
+      path:nth-of-type(6){
+        animation: fade2 5s linear 3s infinite;
+        transform:rotate(90deg) scale(0.5);
+      }
+      
+      path:nth-of-type(7){
+        animation: fade1 5s linear 4s infinite;
+      }
+      
+      path:last-of-type  {
+        animation: fade2 5s linear 5s infinite;
+        transform:rotate(90deg) scale(0.5);
+      }
+      
+      @keyframes fade1{
+        100%{
+        transform:scale(1.3);
+        stroke-dasharray: 1%, 33%;
+        stroke-dashoffset: -0%;
+        }
+      }
+      @keyframes fade2{
+        100%{
+        transform:scale(1.3) rotate(90deg);
+        stroke-dasharray: 1%, 33%;
+        stroke-dashoffset: -0%;
+        }
+      }
+</style>
+  </defs>
+  <path d="M 253.288 207.992 L 288.049 228.061 L 288.049 268.199 L 253.288 288.268 L 218.527 268.199 L 218.527 228.061 Z" bx:shape="n-gon 253.288 248.13 40.138 40.138 6 0 1@cf795aa0"/>
+  <path d="M 253.288 207.992 L 288.049 228.061 L 288.049 268.199 L 253.288 288.268 L 218.527 268.199 L 218.527 228.061 Z" bx:shape="n-gon 253.288 248.13 40.138 40.138 6 0 1@cf795aa0"/>
+  <path d="M 253.288 207.992 L 288.049 228.061 L 288.049 268.199 L 253.288 288.268 L 218.527 268.199 L 218.527 228.061 Z" bx:shape="n-gon 253.288 248.13 40.138 40.138 6 0 1@cf795aa0"/>
+  <path d="M 253.288 207.992 L 288.049 228.061 L 288.049 268.199 L 253.288 288.268 L 218.527 268.199 L 218.527 228.061 Z" bx:shape="n-gon 253.288 248.13 40.138 40.138 6 0 1@cf795aa0"/>
+  <path d="M 253.288 207.992 L 288.049 228.061 L 288.049 268.199 L 253.288 288.268 L 218.527 268.199 L 218.527 228.061 Z" bx:shape="n-gon 253.288 248.13 40.138 40.138 6 0 1@cf795aa0"/>
+  <path d="M 253.288 207.992 L 288.049 228.061 L 288.049 268.199 L 253.288 288.268 L 218.527 268.199 L 218.527 228.061 Z" bx:shape="n-gon 253.288 248.13 40.138 40.138 6 0 1@cf795aa0"/>
+  <path d="M 253.288 207.992 L 288.049 228.061 L 288.049 268.199 L 253.288 288.268 L 218.527 268.199 L 218.527 228.061 Z" bx:shape="n-gon 253.288 248.13 40.138 40.138 6 0 1@cf795aa0"/>
+  <path d="M 253.288 207.992 L 288.049 228.061 L 288.049 268.199 L 253.288 288.268 L 218.527 268.199 L 218.527 228.061 Z" bx:shape="n-gon 253.288 248.13 40.138 40.138 6 0 1@cf795aa0"/>
+</svg>

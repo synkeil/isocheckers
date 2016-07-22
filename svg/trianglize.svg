@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+   <style>
+    path {transform-origin: 50% 67%; fill:#f5f5ee;opacity:0.4}
+    path:first-of-type  {fill:#000;stroke:#000;stroke-width:1px;opacity:1;}
+    path:nth-of-type(2) {animation: spin 2.5s linear }
+    path:nth-of-type(3) {animation: spin 2.5s linear .04s}
+    path:nth-of-type(4) {animation: spin 2.5s linear .08s}
+    path:nth-of-type(5) {animation: spin 2.5s linear .12s}
+    path:nth-of-type(6) {animation: spin 2.5s linear .16s}
+    path:nth-of-type(7) {animation: spin 2.5s linear .2s }
+    path:nth-of-type(8) {animation: spin 2.5s linear .24s}
+    path:last-of-type   {animation: spin 2.5s linear .28s} 
+ 
+    @keyframes spin{
+      0%   {opacity:.4; transform:rotate( 0deg ) scale(1)}
+      13%  {opacity:.2 ; transform:rotate( 60deg) scale(0)}  
+      26%  {opacity:.4; transform:rotate(120deg) scale(1)} 
+      39%  {opacity:.4; transform:rotate(120deg) scale(1)}
+      52%  {opacity:.2 ; transform:rotate(180deg) scale(0)}  
+      63%  {opacity:.4; transform:rotate(240deg) scale(1)}
+      75%  {opacity:.4; transform:rotate(240deg) scale(1)}
+      88%  {opacity:.2;  transform:rotate(300deg) scale(0)}
+      100% {opacity:.4; transform:rotate(360deg) scale(1)}
+    }
+  </style>
+  <rect width="500" height="500" fill="#f5f5ee" />
+  <path d="M 250 180 L 331 320 L 169 320 L 250 180 Z" bx:shape="triangle 169 180 162.2 140 0.5 0 1@b59713dd"/>
+  <path d="M 250 180 L 331 320 L 169 320 L 250 180 Z" bx:shape="triangle 169 180 162.2 140 0.5 0 1@b59713dd"/>
+  <path d="M 250 180 L 331 320 L 169 320 L 250 180 Z" bx:shape="triangle 169 180 162.2 140 0.5 0 1@b59713dd"/>
+  <path d="M 250 180 L 331 320 L 169 320 L 250 180 Z" bx:shape="triangle 169 180 162.2 140 0.5 0 1@b59713dd"/>
+  <path d="M 250 180 L 331 320 L 169 320 L 250 180 Z" bx:shape="triangle 169 180 162.2 140 0.5 0 1@b59713dd"/>
+  <path d="M 250 180 L 331 320 L 169 320 L 250 180 Z" bx:shape="triangle 169 180 162.2 140 0.5 0 1@b59713dd"/>
+  <path d="M 250 180 L 331 320 L 169 320 L 250 180 Z" bx:shape="triangle 169 180 162.2 140 0.5 0 1@b59713dd"/>
+  <path d="M 250 180 L 331 320 L 169 320 L 250 180 Z" bx:shape="triangle 169 180 162.2 140 0.5 0 1@b59713dd"/>
+  <path d="M 250 180 L 331 320 L 169 320 L 250 180 Z" bx:shape="triangle 169 180 162.2 140 0.5 0 1@b59713dd"/>
+</svg>

@@ -8,18 +8,25 @@
 
 <body>
   <style>
-    
-    body {background: #faf8ef;}
+    body {
+      background: #faf8ef;
+    }
     /* Reseting the slider's style */
+    
     input[type=range] {
       background: transparent;
       -webkit-appearance: none;
       margin-top: 50px;
     }
+    
     input[type=range]::-webkit-slider-thumb {
       -webkit-appearance: none;
     }
-    input[type=range]:focus {outline: none;}
+    
+    input[type=range]:focus {
+      outline: none;
+    }
+    
     .areaSlider::-ms-track {
       width: 100%;
       cursor: pointer;
@@ -27,50 +34,54 @@
       border-color: transparent;
       color: transparent;
     }
+    /******************************* 
+    Applying new style to the slider
+    *******************************/
+    /* styling the track */
     
-    input[type=range]::-webkit-slider-runnable-track{
+    input[type=range]::-webkit-slider-runnable-track {
       width: 100%;
-      height: 8px;
+      height: 6px;
       cursor: pointer;
-      background: #5db9db;
+      background: rgba(41, 107, 134, 0.53);
       border-radius: 1.3px;
       border: 0.2px solid #010101;
     }
+    /* Area of effect */
     
-    
-    /* Applying new style to thumb */
     .areaSlider::-webkit-slider-thumb {
+      background: url(svg/aoeSlider.svg) no-repeat center;
+      height: 35px;
+      width: 35px;
+      margin-top: -15px;
+    }
+    /* Power of skill */
+    
+    .powerSlider::-webkit-slider-thumb {
       background: url(svg/slider.svg) no-repeat center;
-      height: 40px;
-      width: 40px;
-      margin-top:-17px;
+      height: 35px;
+      width: 35px;
+      margin-top: -15px;
       transition: .2s ease;
     }
     
-    .areaSlider::-webkit-slider-thumb:hover{
+    .powerSlider::-webkit-slider-thumb:hover{
       transform: rotate(90deg);
     }
-    /* Applying new style to track */
-    .areaSlider::-webkit-slider-runnable-track {
-      width: 100%;
-      height: 8px;
-      cursor: pointer;
-      background: #5db9db;
-      border-radius: 1.3px;
-      border: 0.2px solid #010101;
-    }
+    /* Range of skill */
     
-    .rangeSlider::-webkit-slider-thumb{
-      background: url(svg/sinkeil.svg) no-repeat center;
+    .rangeSlider::-webkit-slider-thumb {
+      background: url(svg/aoeSliderAlternative.svg) no-repeat center;
       height: 50px;
       width: 50px;
-      margin-top:-22px;
+      margin-top: -23px;
     }
-    
   </style>
   <main>
-    <input type="range" class="areaSlider" /><br>
-    <input type="range" class="powerSlider" /><br>
+    <input type="range" class="areaSlider" />
+    <br>
+    <input type="range" class="powerSlider" />
+    <br>
     <input type="range" class="rangeSlider" />
   </main>
   <script>
